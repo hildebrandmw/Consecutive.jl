@@ -1,0 +1,12 @@
+name = "Consecutive"
+uuid = "2403063f-daa1-541b-a506-4f4b1e4d0bb7"
+authors = ["Mark <mhildebrand@ucdavis.edu>"]
+version = "0.1.0"
+
+[deps]
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
