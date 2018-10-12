@@ -12,6 +12,7 @@ using Test
     for (index, item) in enumerate(I)
         @test item == (y[index], y[index + 1])
     end
+    @test collect(consecutive(y)) == [(1,2), (2,3), (3,4), (4,5)]
 end
 
 @testset "Testing Vectors" begin
@@ -19,7 +20,7 @@ end
     I = consecutive(y)
 
     @test length(I) == length(y) - 1
-    @test eltype(I) == eltype(y)
+    @test eltype(I) == Tuple{Int,Int}
     @test Base.IteratorSize(I) == Base.HasLength()
 
     expected = ((1,3), (3,2), (2,4))
