@@ -32,11 +32,11 @@ function Base.iterate(L::ConsecIter, s::Tuple)
 end
 
 # Forwards
-Base.length(L::ConsecIter) = length(l.iter)
-Base.eltype(L::ConsecIter) = eltype(l.iter)
-Base.size(L::ConsecIter) = size(l.iter)
-Base.size(L::ConsecIter, dim) = size(l.iter, dim)
-Base.IteratorSize(::ConsecIter{I}) where I = IteratorSize(I)
-Base.IteratorEltype(::ConsecIter{I}) where I = IteratorEltype(I)
+Base.length(L::ConsecIter) = length(L.iter) - 1
+Base.eltype(L::ConsecIter) = eltype(L.iter)
+Base.size(L::ConsecIter) = size(L.iter) .- 1
+Base.size(L::ConsecIter, dim) = size(L.iter, dim) .- 1
+Base.IteratorSize(::ConsecIter{I}) where {I} = Base.IteratorSize(I)
+Base.IteratorEltype(::ConsecIter{I}) where {I} = Base.IteratorEltype(I)
 
 end # module
