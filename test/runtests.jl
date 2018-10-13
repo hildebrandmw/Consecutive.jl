@@ -13,6 +13,11 @@ using Test
         @test item == (y[index], y[index + 1])
     end
     @test collect(consecutive(y)) == [(1,2), (2,3), (3,4), (4,5)]
+
+    # Test "restrict"
+    @test Consecutive.restrict(Base.HasShape{4}()) == Base.HasLength()
+    @test Consecutive.restrict(Base.HasLength()) == Base.HasLength()
+    @test Consecutive.restrict(Base.SizeUnknown()) == Base.SizeUnknown()
 end
 
 @testset "Testing Vectors" begin
